@@ -20,7 +20,7 @@ public class MyAutomationExerciseTest {
     @Before
     public void setUp() {
         // Launch Browser
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\grace\\Downloads\\chromedriver-win64.zip\\chromedriver-win64");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\grace\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
         // Navigate to url
         chromeDriver.get("https://automationexercise.com");
     }
@@ -38,7 +38,8 @@ public class MyAutomationExerciseTest {
         Thread.sleep(2000);
 
         // Click on 'Signup / Login' button
-        WebElement signUpLoginButton = chromeDriver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a"));
+        //WebElement signUpLoginButton = chromeDriver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a"));
+        WebElement signUpLoginButton = chromeDriver.findElement(By.linkText("Signup / Login"));
         signUpLoginButton.click();
         Thread.sleep(2000);
 
@@ -52,7 +53,10 @@ public class MyAutomationExerciseTest {
         nameText.sendKeys("John Doe");
         Thread.sleep(2000);
 
-        WebElement emailAddressText = chromeDriver.findElement(By.xpath("//*[@id=\"form\"]/div/div/div[3]/div/form/input[3]"));
+        //WebElement emailAddressText = chromeDriver.findElement(By.xpath("//*[@id=\"form\"]/div/div/div[3]/div/form/input[3]"));
+        //WebElement emailAddressText = chromeDriver.findElement(By.cssSelector("input[data-qa='login-email']"));
+        //WebElement emailAddressText = chromeDriver.findElement(By.cssSelector("form[action='/login'] input[name='email']"));
+        WebElement emailAddressText = chromeDriver.findElement(By.cssSelector("div[class='login-form'] form input[name='email']"));
         emailAddressText.sendKeys("testUser7@test.com");
         Thread.sleep(2000);
 
@@ -137,15 +141,11 @@ public class MyAutomationExerciseTest {
         Thread.sleep(2000);
     }
 
-    //Test Case 2: Login User with correct email and password
-    @Test
-    public void loginUserWithCorrectEmailAndPasswordTest() {
 
-    }
 
     // Common ending steps
     @After
     public void exit() {
-        chromeDriver.quit();
+       // chromeDriver.quit();
     }
 }

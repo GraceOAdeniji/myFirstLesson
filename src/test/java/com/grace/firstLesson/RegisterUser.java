@@ -2,8 +2,6 @@ package com.grace.firstLesson;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.junit.After;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.openqa.selenium.By;
@@ -16,13 +14,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnit4.class)
-public class MyFirstFeature {
+public class RegisterUser {
     ChromeDriver chromeDriver = new ChromeDriver();
 
     @Given("user should be on automation website home page")
     public void user_should_be_on_automation_website_home_page() {
         System.out.println("Step 1");
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\grace\\Downloads\\chromedriver-win64.zip\\chromedriver-win64");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\grace\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
         chromeDriver.get("https://automationexercise.com");
     }
     @Then("Verify that home page is visible successfully")
@@ -85,9 +83,7 @@ public class MyFirstFeature {
 
     @Then("Fill details: Title, Name, Email, Password, Date of birth")
     public void fill_details_title_name_email_password_date_of_birth() throws InterruptedException {
-        WebElement titleText = chromeDriver.findElement(By.xpath("//*[@id=\"uniform-id_gender1\"]"));
-        titleText.click();
-        Thread.sleep(2000);
+        chromeDriver.findElement(By.xpath("//*[@id=\"uniform-id_gender1\"]")).click();
 
         // Select title and enter user details with delays between actions.
         chromeDriver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("Johny01");

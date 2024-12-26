@@ -3,7 +3,8 @@ package com.grace.firstLesson;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import java.util.ArrayList;
 import java.util.List;
 
